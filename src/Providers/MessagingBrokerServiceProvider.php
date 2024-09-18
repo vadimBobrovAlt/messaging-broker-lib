@@ -2,6 +2,7 @@
 
 namespace bobrovva\messaging_broker_lib\Providers;
 
+use bobrovva\messaging_broker_lib\Commands\MessagingBrokerHandle;
 use bobrovva\messaging_broker_lib\Helpers\Loader;
 use bobrovva\messaging_broker_lib\Kafka\KafkaBroker;
 use bobrovva\messaging_broker_lib\MessagingBrokerInterface;
@@ -23,6 +24,12 @@ class MessagingBrokerServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                MessagingBrokerHandle::class,
+            ]);
+        }
+
         $this->publishes([
             __DIR__ . '/../Enums/MessagingBrokerGroupEnum.php' => base_path('app/Infrastructure/MessagingBroker/Enums/MessagingBrokerGroupEnum.php'),
             __DIR__ . '/../Enums/MessagingBrokerTopicEnum.php' => base_path('app/Infrastructure/MessagingBroker/Enums/MessagingBrokerTopicEnum.php'),

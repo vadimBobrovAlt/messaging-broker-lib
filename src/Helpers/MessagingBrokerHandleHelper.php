@@ -2,9 +2,9 @@
 
 namespace bobrovva\messaging_broker_lib\Helpers;
 
-use bobrovva\messaging_broker_lib\Enums\MessagingBrokerGroupEnum;
+use App\Infrastructure\MessagingBroker\Enums\MessagingBrokerGroupEnum;
+use App\Infrastructure\MessagingBroker\Kafka\KafkaHandler;
 use bobrovva\messaging_broker_lib\Facades\MessagingBroker;
-use bobrovva\messaging_broker_lib\Kafka\KafkaHandler;
 
 class MessagingBrokerHandleHelper
 {

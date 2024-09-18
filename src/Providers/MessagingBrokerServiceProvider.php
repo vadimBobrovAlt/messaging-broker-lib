@@ -15,10 +15,6 @@ class MessagingBrokerServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        Loader::loadEnum('MessagingBrokerGroupEnum');
-        Loader::loadEnum('MessagingBrokerTopicEnum');
-        Loader::loadHandler();
-
         $this->app->bind(MessagingBrokerInterface::class, fn($app) => new KafkaBroker());
     }
 
@@ -28,12 +24,9 @@ class MessagingBrokerServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->publishes([
-            __DIR__ . '/../src/Enums/MessagingBrokerGroupEnum.php' => base_path('app/Infrastructure/MessagingBroker/Enums/MessagingBrokerGroupEnum.php'),
-            __DIR__ . '/../src/Enums/MessagingBrokerTopicEnum.php' => base_path('app/Infrastructure/MessagingBroker/Enums/MessagingBrokerTopicEnum.php'),
-        ], 'messaging-broker-enums');
-
-        $this->publishes([
-            __DIR__ . '/../src/Kafka/KafkaHandler.php' => base_path('app/Infrastructure/MessagingBroker/Kafka/KafkaHandler.php'),
-        ], 'messaging-broker-handler');
+            __DIR__ . '/../Enums/MessagingBrokerGroupEnum.php' => base_path('app/Infrastructure/MessagingBroker/Enums/MessagingBrokerGroupEnum.php'),
+            __DIR__ . '/../Enums/MessagingBrokerTopicEnum.php' => base_path('app/Infrastructure/MessagingBroker/Enums/MessagingBrokerTopicEnum.php'),
+            __DIR__ . '/../Kafka/KafkaHandler.php' => base_path('app/Infrastructure/MessagingBroker/Kafka/KafkaHandler.php'),
+        ], 'messaging-broker');
     }
 }

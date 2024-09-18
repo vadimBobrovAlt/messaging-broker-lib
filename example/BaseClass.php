@@ -3,8 +3,8 @@
 namespace App\Test;
 
 
-use bobrovva\messaging_broker_lib\Enums\MessagingBrokerGroupEnum;
-use bobrovva\messaging_broker_lib\Enums\MessagingBrokerTopicEnum;
+namespace App\Infrastructure\MessagingBroker\MessagingBrokerGroupEnum;
+namespace App\Infrastructure\MessagingBroker\Enums\MessagingBrokerTopicEnum;
 use bobrovva\messaging_broker_lib\Facades\MessagingBroker;
 use bobrovva\messaging_broker_lib\Helpers\MessagingBrokerHandleHelper;
 use Illuminate\Support\Str;

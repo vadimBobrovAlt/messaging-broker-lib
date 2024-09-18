@@ -2,6 +2,16 @@
 
 Данная библиотека служит для взаимодействия с системой брокеров сообщений
 
+Опубликовать конфигурацию
+```
+php artisan vendor:publish --tag=messaging-broker
+```
+
+Команда для прослушивания событий
+```
+php artisan  messaging-broker:handle {group}
+```
+
 Пример отправки
 
 ```phpt

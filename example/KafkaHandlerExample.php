@@ -2,7 +2,7 @@
 
 namespace App\Test;
 
-use bobrovva\messaging_broker_lib\Enums\MessagingBrokerTopicEnum;
+namespace App\Infrastructure\MessagingBroker\Enums\MessagingBrokerTopicEnum;
 
 class KafkaHandlerExample
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace bobrovva\messaging_broker_lib\Kafka;
+namespace App\Infrastructure\MessagingBroker\Kafka;
 
 use Junges\Kafka\Contracts\ConsumerMessage;
 use Junges\Kafka\Contracts\MessageConsumer;

@@ -6,6 +6,11 @@
 ```
 php artisan vendor:publish --tag=messaging-broker
 ```
+После публикации создадутся 3 файла:
+- `app/Infrastructure/MessagingBroker/Enums/MessagingBrokerTopicEnum.php` - Enum топиков
+- `app/Infrastructure/MessagingBroker/Enums/MessagingBrokerGroupEnum.php` - Enum групп кафки нужны для прослушивания групп и указываются как параметр команды `messaging-broker:handle {group}` 
+- `app/Infrastructure/MessagingBroker/Kafka/KafkaHandler.php` - Handler в котором необходимо прослушивать и обрабатывать события сервиса
+
 
 Команда для прослушивания событий
 ```

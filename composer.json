@@ -1,0 +1,16 @@
+{
+  "name": "bobrovva/messaging_broker_lib",
+  "description": "Базовая логика репозиториев с фильтрацией, сортировкой и выборкой полей",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "bobrovva\\messaging_broker_lib\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=8.1",
+    "laravel/framework": "^11.9",
+    "mateusjunges/laravel-kafka": "^2.2"
+  }
+}

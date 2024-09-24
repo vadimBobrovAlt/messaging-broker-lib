@@ -5,6 +5,7 @@
 Опубликовать конфигурацию
 ```
 php artisan vendor:publish --tag=messaging-broker
+php artisan vendor:publish --tag=laravel-kafka-config
 ```
 После публикации создадутся 3 файла:
 - `app/Infrastructure/MessagingBroker/Enums/MessagingBrokerTopicEnum.php` - Enum топиков
@@ -19,7 +20,7 @@ php artisan  messaging-broker:handle {group}
 
 Пример отправки
 
-```phpt
+```
 class BaseClass
 {
     /**
@@ -61,7 +62,7 @@ class BaseClass
 ```
 
 Пример получения
-```phpt
+```
     /**
      * Обрабатывает полученное сообщение из Kafka.
      *

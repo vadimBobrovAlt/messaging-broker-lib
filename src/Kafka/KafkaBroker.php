@@ -3,6 +3,7 @@
 namespace bobrovva\messaging_broker_lib\Kafka;
 
 use bobrovva\messaging_broker_lib\MessagingBrokerInterface;
+use Illuminate\Support\Facades\Log;
 use Junges\Kafka\Facades\Kafka;
 use Junges\Kafka\Message\Message;
 
@@ -78,7 +79,14 @@ class KafkaBroker implements MessagingBrokerInterface
             $consumer->withMaxMessages($options['max_messages']);
         }
 
-        $consumer->build()->consume();
+        while (true) {
+            try {
+                $consumer->build()->consume();
+            } catch (\Exception $e) {
+                Log::error('Kafka is temporarily unavailable: ' . $e->getMessage());
+                sleep(5);
+            }
+        }
     }
 
     /**
